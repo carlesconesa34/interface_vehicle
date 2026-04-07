@@ -16,44 +16,37 @@ package com.vehicleInterface;
  * @version 1.0
  * @since 2026-04-07
  */
-public class Vehicle {
+public abstract class Vehicle {
 
     // Attributes
     /**
      * Description of attribute1
      */
-    private String attribute1;
+    private int posX;
 
     /**
      * Description of attribute2
      */
-    private int attribute2;
+    private int posY;
 
     /**
      * Description of attribute3
      */
-    private double attribute3;
+    private int money;
+
+    /**
+     * Description of attribute3
+     */
+    private boolean available;
 
     /**
      * Default constructor. Initializes all attributes with default values.
      */
-    public Vehicle() {
-        this.attribute1 = null;
-        this.attribute2 = 0;
-        this.attribute3 = 0.0;
-    }
-
-    /**
-     * Parameterized constructor.
-     *
-     * @param attribute1 description of parameter
-     * @param attribute2 description of parameter
-     * @param attribute3 description of parameter
-     */
-    public Vehicle(String attribute1, int attribute2, double attribute3) {
-        this.attribute1 = attribute1;
-        this.attribute2 = attribute2;
-        this.attribute3 = attribute3;
+    public Vehicle(int posX, int posY, int money, boolean available) {
+        this.posX = posX;
+        this.posY = posY;
+        this.money = money;
+        this.available = available;
     }
 
     // Getters and Setters
@@ -62,17 +55,17 @@ public class Vehicle {
      *
      * @return the attribute1
      */
-    public String getattribute1() {
-        return attribute1;
+    public int posX() {
+        return posX;
     }
 
     /**
      * Sets the value of attribute1.
      *
-     * @param attribute1 the attribute1 to set
+     * @param posX the attribute1 to set
      */
-    public void setattribute1(String attribute1) {
-        this.attribute1 = attribute1;
+    public void setPosX(int posX) {
+        this.posX = posX;
     }
 
     /**
@@ -80,44 +73,60 @@ public class Vehicle {
      *
      * @return the attribute2
      */
-    public int getattribute2() {
-        return attribute2;
+    public int posY() {
+        return posY;
     }
 
     /**
      * Sets the value of attribute2.
      *
-     * @param attribute2 the attribute2 to set
+     * @param posY the attribute2 to set
      */
-    public void setattribute2(int attribute2) {
-        this.attribute2 = attribute2;
+    public void setPosY(int posY) {
+        this.posY = posY;
     }
 
     /**
      * Gets the value of attribute3.
      *
-     * @return the attribute3
+     * @return the money
      */
-    public double getattribute3() {
-        return attribute3;
+    public int getMoney() {
+        return money;
     }
 
     /**
      * Sets the value of attribute3.
      *
-     * @param attribute3 the attribute3 to set
+     * @param money the attribute3 to set
      */
-    public void setattribute3(double attribute3) {
-        this.attribute3 = attribute3;
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    /**
+     * Gets the value of attribute3.
+     *
+     * @return available
+     */
+    public boolean isAvailable() {
+        return available;
+    }
+
+    /**
+     * Sets the value of attribute3.
+     *
+     * @param available the attribute3 to set
+     */
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     // Custom methods
     /**
      * Method description
      */
-    public void methodName() {
-        // TODO: Implement method
-    }
+    public abstract boolean collision();
 
     /**
      * Method description
@@ -138,19 +147,10 @@ public class Vehicle {
     @Override
     public String toString() {
         return "Vehicle{"
-                + "attribute1=" + attribute1
-                + ", attribute2=" + attribute2
-                + ", attribute3=" + attribute3
+                + "posX=" + posX
+                + ", posY=" + posY
+                + ", money=" + money
+                + ", available=" + available
                 + '}';
-    }
-
-    /**
-     * Main method for testing purposes.
-     *
-     * @param args command line arguments
-     */
-    public static void main(String[] args) {
-        Vehicle obj = new Vehicle();
-        // Test your class here
     }
 }
