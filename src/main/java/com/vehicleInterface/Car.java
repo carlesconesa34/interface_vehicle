@@ -54,19 +54,55 @@ public class Car extends Vehicle implements Refillable, Repairable {
     /**
      * Method description
      */
-    public void methodName() {
-        // TODO: Implement method
-    }
-
     @Override
-    public boolean collision() {
-        if (isAvailable()) {
-            setAvailable(false);
+    public boolean repair() {
+        if (!isAvailable() && getMoney() >= Repairable.CAR) {
+            setMoney(getMoney() - Repairable.CAR);
+            setAvailable(true);
             return true;
         }
 
         return false;
     }
+
+    @Override
+    public boolean move(char pos) {
+        if (isAvailable() && petrol >= Movable.CAR_CONSUM) {
+            switch (pos) {
+                case 'x':
+                    setPosX(getPosX() + Movable.CAR);
+                    break;
+                case 'y':
+                    setPosY(getPosY() + Movable.CAR);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+
+            petrol -= Movable.CAR_CONSUM;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean refill() {
+        if (isAvailable()) {
+            int liters = Refillable.CAR - petrol;
+            int cost = liters * Refillable.PRICE;
+
+            if (petrol < Refillable.CAR && getMoney() >= cost) {
+                petrol += liters;
+                setMoney(getMoney() - cost);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
     /**
      * Returns a string representation of this object.
