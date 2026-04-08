@@ -16,7 +16,7 @@ package com.vehicleInterface;
  * @version 1.0
  * @since 2026-04-07
  */
-public abstract class Vehicle {
+public abstract class Vehicle implements Movable {
 
     // Attributes
     /**

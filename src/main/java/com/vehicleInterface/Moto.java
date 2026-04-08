@@ -16,7 +16,7 @@ package com.vehicleInterface;
  * @version 1.0
  * @since 2026-04-07
  */
-public class Moto extends Vehicle {
+public class Moto extends Vehicle implements Refillable, Repairable {
 
     /**
      * Description of attribute2

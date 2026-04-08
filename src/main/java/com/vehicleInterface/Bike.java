@@ -7,7 +7,6 @@
  * This is free software, licensed under the GNU General Public License v3.
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
-
 package com.vehicleInterface;
 
 /**
@@ -17,11 +16,10 @@ package com.vehicleInterface;
  * @version 1.0
  * @since 2026-04-07
  */
-public class Bike extends Vehicle{
+public class Bike extends Vehicle implements Repairable {
 
     /**
-     * Default constructor.
-     * Initializes all attributes with default values.
+     * Default constructor. Initializes all attributes with default values.
      */
     public Bike(int posX, int posY, int money, boolean available) {
         super(posX, posY, money, available);

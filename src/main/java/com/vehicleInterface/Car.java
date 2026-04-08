@@ -7,7 +7,6 @@
  * This is free software, licensed under the GNU General Public License v3.
  * See http://www.gnu.org/licenses/gpl.html for more information.
  */
-
 package com.vehicleInterface;
 
 /**
@@ -17,14 +16,15 @@ package com.vehicleInterface;
  * @version 1.0
  * @since 2026-04-07
  */
-public class Car extends Vehicle{
-    
-    /** Description of attribute2 */
+public class Car extends Vehicle implements Refillable, Repairable {
+
+    /**
+     * Description of attribute2
+     */
     private int petrol;
 
     /**
-     * Default constructor.
-     * Initializes all attributes with default values.
+     * Default constructor. Initializes all attributes with default values.
      */
     public Car(int posX, int posY, int money, boolean available, int petrol) {
         super(posX, posY, money, available);
@@ -32,7 +32,6 @@ public class Car extends Vehicle{
     }
 
     // Getters and Setters
-    
     /**
      * Gets the value of petrol.
      *
@@ -41,7 +40,7 @@ public class Car extends Vehicle{
     public int getPetrol() {
         return petrol;
     }
-    
+
     /**
      * Sets the value of petrol.
      *
@@ -52,7 +51,6 @@ public class Car extends Vehicle{
     }
 
     // Custom methods
-    
     /**
      * Method description
      */
@@ -61,8 +59,8 @@ public class Car extends Vehicle{
     }
 
     @Override
-    public boolean collision(){
-        if(isAvailable()){
+    public boolean collision() {
+        if (isAvailable()) {
             setAvailable(false);
             return true;
         }

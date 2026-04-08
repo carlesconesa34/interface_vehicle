@@ -17,7 +17,7 @@ package com.vehicleInterface;
  * @version 1.0
  * @since 2026-04-07
  */
-public class Truck extends Vehicle{
+public class Truck extends Vehicle implements Refillable, Repairable{
     
     /** Description of attribute2 */
     private int petrol;
