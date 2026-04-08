@@ -55,7 +55,7 @@ public abstract class Vehicle implements Movable {
      *
      * @return the attribute1
      */
-    public int posX() {
+    public int getPosX() {
         return posX;
     }
 
@@ -73,7 +73,7 @@ public abstract class Vehicle implements Movable {
      *
      * @return the attribute2
      */
-    public int posY() {
+    public int getPosY() {
         return posY;
     }
 
@@ -126,17 +126,14 @@ public abstract class Vehicle implements Movable {
     /**
      * Method description
      */
-    public abstract boolean collision();
+    @Override
+    public boolean collision() {
+        if (available) {
+            setAvailable(false);
+            return true;
+        }
 
-    /**
-     * Method description
-     *
-     * @param param parameter description
-     * @return return value description
-     */
-    public ReturnType anotherMethod(ParamType param) {
-        // TODO: Implement method
-        return null;
+        return false;
     }
 
     /**
@@ -146,11 +143,11 @@ public abstract class Vehicle implements Movable {
      */
     @Override
     public String toString() {
-        return "Vehicle{"
+        return "Vehicle["
                 + "posX=" + posX
                 + ", posY=" + posY
                 + ", money=" + money
                 + ", available=" + available
-                + '}';
+                + ']';
     }
 }
