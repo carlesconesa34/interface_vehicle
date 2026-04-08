@@ -16,7 +16,7 @@ package com.vehicleInterface;
  * @version 1.0
  * @since 2026-04-07
  */
-public class Bike extends Vehicle implements Repairable {
+public class Bike extends Vehicle implements Movable, Repairable {
 
     /**
      * Default constructor. Initializes all attributes with default values.
@@ -26,9 +26,35 @@ public class Bike extends Vehicle implements Repairable {
     }
 
     @Override
-    public boolean collision() {
+    public boolean move(char pos) {
         if (isAvailable()) {
-            setAvailable(false);
+            switch (pos) {
+                case 'x':
+                    setPosX(getPosX() + Movable.BIKE);
+                    break;
+                case 'y':
+                    setPosY(getPosY() + Movable.BIKE);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+
+    // Custom methods
+    /**
+     * Method description
+     */
+    @Override
+    public boolean repair() {
+        if (!isAvailable() && getMoney() >= Repairable.BIKE) {
+            setMoney(getMoney() - Repairable.BIKE);
+            setAvailable(true);
             return true;
         }
 
