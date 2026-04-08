@@ -8,7 +8,7 @@ public interface Movable {
     public static final int BIKE = 3;
     public static final int CAR_CONSUM = 10;
     public static final int MOTO_CONSUM = 4;
-    public static final int BIKE_CONSUM = 6;
+    public static final int TRUCK_CONSUM = 6;
 
     public boolean move(char pos);
 
